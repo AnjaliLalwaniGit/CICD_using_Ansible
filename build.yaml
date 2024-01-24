@@ -1,0 +1,13 @@
+---
+- name: Build the war file using Maven
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Clone Git repository
+      git:
+        repo: https://github.com/AnjaliLalwaniGit/hello-world-war.git
+        dest: /mytmp/config_mng_proj1/
+    - name:  Maven to build the code
+      command: mvn chdir=/mytmp/config_mng_proj1/ clean install
+      
+
